@@ -1,0 +1,7 @@
+name,phone,address,notes,start_date,daily_target
+Ramesh Kumar,98765 43210,"Shop 4, Market Road",Pays in the morning,2026-01-01,200
+Sunita Patil,9822012345,Lane 7,,2026-02-15,150
+Abdul Rahman,+919900112233,"Gala 12, Industrial Estate","Prefers UPI, sometimes cash",2026-03-01,300
+Priya Desai,9765432109,,,,100
+,9000000000,Row without a name is skipped,,,
+Duplicate Phone,98765-43210,Same number as Ramesh — skipped,,,

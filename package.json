@@ -1,0 +1,80 @@
+{
+  "name": "dailycollect",
+  "productName": "DailyCollect",
+  "version": "1.0.0",
+  "description": "Offline desktop app for logging daily money collected from customers.",
+  "author": "Mayuresh Pagare <mayureshpagare7@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build:renderer": "vite build",
+    "start": "vite build && electron .",
+    "test": "node --test \"tests/*.test.js\"",
+    "dist": "vite build && electron-builder",
+    "dist:win": "vite build && electron-builder --win",
+    "dist:mac": "vite build && electron-builder --mac",
+    "dist:linux": "vite build && electron-builder --linux"
+  },
+  "build": {
+    "appId": "com.mayureshpagare.dailycollect",
+    "productName": "DailyCollect",
+    "copyright": "Copyright © 2026 Mayuresh Pagare",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "npmRebuild": false,
+    "asarUnpack": [
+      "**/node_modules/better-sqlite3/**"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.finance"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Office",
+      "maintainer": "Mayuresh Pagare <mayureshpagare7@gmail.com>"
+    }
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "exceljs": "^4.4.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.3.0",
+    "electron": "^45.2.3",
+    "electron-builder": "^26.18.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "vite": "^8.3.7"
+  },
+  "allowScripts": {
+    "electron@45.2.3": true,
+    "better-sqlite3@13.0.3": true,
+    "electron-winstaller@5.4.0": true
+  }
+}
